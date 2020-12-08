@@ -54,6 +54,10 @@ public class TakeAwayBillImpl implements TakeAwayBill {
             price -= price * 0.1;
         }
         
+        if (price < 10) {
+            price += 0.5;
+        }
+        
         return price;
     }
 

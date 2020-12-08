@@ -123,6 +123,22 @@ public class TakeAwayBillTest {
         assertTrue(check);
     }
     
+    @Test
+    public void commissione_sotto_10(){
+        TakeAwayBillImpl bill=new TakeAwayBillImpl();
+        User u=new User(1,"Giovanni",LocalDate.of(1998, 7, 28));
+        List<MenuItem> ord=new ArrayList<MenuItem>();
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Pistacchio",2));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",1));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",1));
+        try {
+            assertEquals(bill.getOrderPrice(ord,u,LocalTime.of(18,26)), 7.5 ,0.0001);
+        }
+        catch(RestaurantBillException e){
+            fail();
+        }
+    }
     
 	
 }
