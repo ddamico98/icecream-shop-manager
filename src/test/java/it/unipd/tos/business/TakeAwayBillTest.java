@@ -53,6 +53,26 @@ public class TakeAwayBillTest {
     }
     
     @Test
+    public void sconto_10pc_e_sconto_superati_5_gelati(){
+        TakeAwayBillImpl bill=new TakeAwayBillImpl();
+        User u=new User(1,"Giovanni",LocalDate.of(1998, 7, 28));
+        List<MenuItem> ord=new ArrayList<MenuItem>();
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",10));
+        try {
+            assertEquals(bill.getOrderPrice(ord,u,LocalTime.of(18,26)), 49.5 ,0.0001);
+        }
+        catch(RestaurantBillException e){
+            fail();
+        }
+    }
+    
+    
+    @Test
     public void superati_30_articoli(){
         TakeAwayBillImpl bill=new TakeAwayBillImpl();
         User u=new User(1,"Giovanni",LocalDate.of(1998, 7, 28));
