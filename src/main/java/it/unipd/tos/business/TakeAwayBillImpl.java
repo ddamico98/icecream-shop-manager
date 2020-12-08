@@ -23,7 +23,9 @@ public class TakeAwayBillImpl implements TakeAwayBill {
         double min_price_gelati = 0;
         boolean first = false;
         
-       
+        if (itemsOrdered.size() > 30) {
+            throw new RestaurantBillException(); 
+        }
         for (int i = 0; i < itemsOrdered.size(); i++) {
             if (itemsOrdered.get(i).getType() == itemType.Gelati || itemsOrdered.get(i).getType() == itemType.Budini)
             { 

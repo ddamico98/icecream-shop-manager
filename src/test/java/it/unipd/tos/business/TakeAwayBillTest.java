@@ -51,5 +51,78 @@ public class TakeAwayBillTest {
             fail();
         }
     }
+    
+    @Test
+    public void superati_30_articoli(){
+        TakeAwayBillImpl bill=new TakeAwayBillImpl();
+        User u=new User(1,"Giovanni",LocalDate.of(1998, 7, 28));
+        List<MenuItem> ord=new ArrayList<MenuItem>();
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+        ord.add(new MenuItem(itemType.Gelati,"Nocciola",3));
+       
+        boolean check=false;
+        try{
+            bill.getOrderPrice(ord,u,LocalTime.of(18,23));
+        }
+        catch(RestaurantBillException e){
+            check=true;
+        }
+        assertTrue(check);
+    }
+    
+    
 	
 }
