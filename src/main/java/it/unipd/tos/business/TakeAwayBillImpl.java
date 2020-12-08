@@ -13,8 +13,8 @@ import it.unipd.tos.model.User;
 import it.unipd.tos.model.MenuItem;
 
 public class TakeAwayBillImpl implements TakeAwayBill {
-
-    @Override
+    private List<User> free_ords = new ArrayList<User>();
+   @Override
     public double getOrderPrice(List<MenuItem> itemsOrdered, User user, LocalTime time) throws RestaurantBillException {
 
         double price = 0;
@@ -56,6 +56,24 @@ public class TakeAwayBillImpl implements TakeAwayBill {
         
         if (price < 10) {
             price += 0.5;
+        }
+        
+        Period under = Period.between(user.getDate(), LocalDate.now());
+        if (under.getYears() < 18 && time.isAfter(LocalTime.of(18, 0, 0)) && time.isBefore(LocalTime.of(19, 0, 0))
+                && free_ords.size() < 10) {
+            boolean check = false;
+            int rand = 0;
+            for (int i = 0; i < free_ords.size(); i++) {
+                if (free_ords.get(i).getId() == user.getId()) {
+                    check = true;
+                }
+                    
+            }
+            rand = time.getSecond();
+            if (rand % 2 == 0 && !check) {
+                price = 0;
+                free_ords.add(user);
+            }
         }
         
         return price;
